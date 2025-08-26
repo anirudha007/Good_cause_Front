@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- before </body> -->
+  <script src="assets/js/app.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Good Cause Solution | STEM for School Students</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#0ea5e9; /* sky-500 */
+      --brand-dark:#0284c7;
+      --ink:#0f172a;   /* slate-900 */
+      --bg-light:#f8fafc;
+      --card-bg:#fff;
+      --shadow:0 10px 30px rgba(2,8,23,.08);
+    }
+    body{
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg-light);
+    }
+    .btn-brand{
+      background:var(--brand);
+      border-color:var(--brand);
+      font-weight:600;
+      letter-spacing:0.5px;
+      transition:all 0.2s ease;
+    }
+    .btn-brand:hover{
+      background:var(--brand-dark);
+      border-color:var(--brand-dark);
+      transform: translateY(-2px);
+    } 
+    .badge-soft{
+      background:rgba(14,165,233,.12);
+      color:var(--brand);
+      font-weight:500;
+    }
+    .hero{
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(14,165,233,.15), transparent 70%),
+                  radial-gradient(800px 400px at -10% 30%, rgba(14,165,233,.1), transparent 60%),
+                  linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .section{
+      padding:64px 0 56px 0;
+      scroll-margin-top: 72px;
+    }
+    .shadow-soft{
+      box-shadow:var(--shadow);
+      transition: box-shadow 0.2s ease;
+    }
+    .shadow-soft:hover{
+      box-shadow:0 16px 40px rgba(14,165,233,0.13);
+    }
+    .icon-circle{
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#e0f2fe;
+      font-size:1.5rem;
+      transition: transform 0.2s ease;
+    }
+    .icon-circle:hover{
+      transform: scale(1.05);
+    }
+    .rounded-2xl{border-radius:1rem}
+    .divider{height:1px;background:linear-gradient(90deg, transparent, #e2e8f0, transparent)}
+    .bg-striped{background-image:linear-gradient(135deg, rgba(2,8,23,.03) 25%, transparent 25%), linear-gradient(225deg, rgba(2,8,23,.03) 25%, transparent 25%), linear-gradient(45deg, rgba(2,8,23,.03) 25%, transparent 25%), linear-gradient(315deg, rgba(2,8,23,.03) 25%, #fff 25%);background-position:10px 0,10px 0,0 0,0 0;background-size:10px 10px;background-repeat:repeat}
+    .list-check li{position:relative;padding-left:32px}
+    .list-check li::before{content:"✓";position:absolute;left:0;top:0;color:#16a34a;font-weight:700}
+    .course-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(14,165,233,0.10);
+    }
+    .course-card img{
+      object-fit:cover;
+      height:180px;
+      border-top-left-radius:1rem;
+      border-top-right-radius:1rem;
+    }
+    .gallery img,.gallery video{
+      object-fit:cover;
+      height:220px;
+      transition: transform 0.2s ease;
+    }
+    .gallery-card{
+      background:var(--card-bg);
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .gallery-card:hover{
+      transform: translateY(-4px);
+      box-shadow:0 16px 40px rgba(14,165,233,0.13);
+    }
+    .navbar{box-shadow:0 2px 12px rgba(14,165,233,0.04);}
+    .navbar-nav .nav-link{
+      font-weight:500;
+      letter-spacing:0.5px;
+      transition: color 0.2s ease;
+    }
+    .navbar-nav .nav-link:hover{
+      color:var(--brand);
+    }
+    @media (max-width: 991.98px) {
+      .navbar-brand span {font-size:1.1rem;}
+    }
+    @media (max-width: 767.98px) {
+      .section{padding:40px 0 32px 0;}
+      .gallery img,.gallery video{height:140px;}
+      .course-card img{height:120px;}
+    }
+    @media (max-width: 575.98px) {
+      .navbar-brand img{height:36px!important;}
+      .gallery img,.gallery video{height:100px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom">
+    <div class="container py-2">
+  <a class="navbar-brand fw-bold d-flex align-items-center gap-3" href="#" style="font-size:1.5rem;">
+    <img src="assets/img/Logo.png" alt="Logo" style="height:48px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(14,165,233,0.25));background:#fff;border-radius:0.5rem;padding:4px 8px;">
+    <span style="color:var(--brand);font-weight:700;letter-spacing:0.5px;">Good Cause Solution</span>
+  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#curriculum">Curriculum</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-brand text-white" href="#enroll">Enroll Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container section">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge badge-soft rounded-pill mb-3 px-3 py-2">STEM for School Students (Grades 3–12)</span>
+          <h1 class="display-5 fw-bold">Learn Robotics the <span style="color:var(--brand)">Hands‑on</span> Way</h1>
+          <p class="lead text-secondary">From LEGO and Arduino to IoT & AI basics — structured pathways, real projects, and competitions.
+          </p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#courses" class="btn btn-brand text-white btn-lg">View Courses</a>
+            <a href="#contact" class="btn btn-outline-dark btn-lg">Talk to Us</a>
+          </div>
+          <div class="d-flex gap-4 mt-4 small text-secondary">
+            <div>📍 Midnapore • In‑person & Online</div>
+            <div>🎓 Certified Instructors</div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="rounded-2xl overflow-hidden shadow-soft bg-striped p-2">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/img/inage1.png" class="d-block w-100 rounded-2xl" alt="Slide 1" style="height:320px;object-fit:cover;" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/inage2.png" class="d-block w-100 rounded-2xl" alt="Slide 2" style="height:320px;object-fit:cover;" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/inage3.png" class="d-block w-100 rounded-2xl" alt="Slide 3" style="height:320px;object-fit:cover;" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/inage4.png" class="d-block w-100 rounded-2xl" alt="Slide 4" style="height:320px;object-fit:cover;" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/inage5.png" class="d-block w-100 rounded-2xl" alt="Slide 5" style="height:320px;object-fit:cover;" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/inage6.png" class="d-block w-100 rounded-2xl" alt="Slide 6" style="height:320px;object-fit:cover;" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/inage7.png" class="d-block w-100 rounded-2xl" alt="Slide 7" style="height:320px;object-fit:cover;" />
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3">About Our Training Center</h2>
+          <p class="text-secondary">We help school students build a strong foundation in science, technology, engineering, and mathematics with project‑based learning. Our labs are equipped with Arduino, sensors, 3D printers, and more.</p>
+          <ul class="list-check text-secondary">
+            <li>Age‑appropriate tracks: Junior, Middle, Senior</li>
+            <li>Competition prep: WRO, IRC, Maker Fests</li>
+            <li>Parent progress reports & certificates</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <div class="icon-circle mb-3">🧪</div>
+                <h6 class="fw-bold">Hands‑on Labs</h6>
+                <p class="small text-secondary mb-0">Build real robots, circuits, and code.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <div class="icon-circle mb-3">🧠</div>
+                <h6 class="fw-bold">STEM Mindset</h6>
+                <p class="small text-secondary mb-0">Think, experiment, iterate, and learn.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <div class="icon-circle mb-3">🏆</div>
+                <h6 class="fw-bold">Competitions</h6>
+                <p class="small text-secondary mb-0">Showcase your creations & win medals.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <div class="icon-circle mb-3">🧑‍🏫</div>
+                <h6 class="fw-bold">Expert Mentors</h6>
+                <p class="small text-secondary mb-0">Guidance from industry educators.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Courses -->
+  <section id="courses" class="section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <h2 class="fw-bold mb-1">Popular Courses</h2>
+          <p class="text-secondary mb-0">Structured paths for Grades 3–12</p>
+        </div>
+        <a href="#enroll" class="btn btn-outline-dark">Enroll</a>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card course-card h-100 shadow-soft border-0">
+            <img src="assets/img/RoboKids-Explorer.png" class="card-img-top" alt="RoboKids Explorer"/>
+            <div class="card-body">
+              <span class="badge bg-light text-dark mb-2">Junior-Class(V–VII)</span>
+              <h5 class="card-title">RoboKids Explorer</h5>
+              <p class="card-text text-secondary">Sensors, motors, and logic using block coding. Build line followers and obstacle bots.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between">
+              <span class="fw-semibold"> 2 Years</span>
+              <a href="robokids-explorer.html" class="link-primary">Know more →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card course-card h-100 shadow-soft border-0">
+            <img src="assets/img/IoT-Innovators.png" class="card-img-top" alt="IoT Innovators"/>
+            <div class="card-body">
+              <span class="badge bg-light text-dark mb-2">Middle- Class(V–VII)</span>
+              <h5 class="card-title">IoT Innovators</h5>
+              <p class="card-text text-secondary">Circuits, sensors, coding in C/C++. Build distance meter, smart light, and rover.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between">
+              <span class="fw-semibold"> 1 Year</span>
+              <a href="iot-innovators.html" class="link-primary">Know more →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card course-card h-100 shadow-soft border-0">
+            <img src="assets/img/RoboMaster.png" class="card-img-top" alt="RoboMaster"/>
+            <div class="card-body">
+              <span class="badge bg-light text-dark mb-2">Senior-Class(XI-XII)</span>
+              <h5 class="card-title">RoboMaster</h5>
+              <p class="card-text text-secondary">Cloud dashboards, ML basics, and autonomous navigation with sensors.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between">
+              <span class="fw-semibold">1 Year</span>
+              <a href="robomaster.html" class="link-primary">Know more →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card course-card h-100 shadow-soft border-0">
+            <img src="assets/img/Crash-Courses-in-Robotics-and-IoT.png" class="card-img-top" alt="Crash Courses in Robotics & IoT"/>
+            <div class="card-body">
+              <span class="badge bg-light text-dark mb-2">Professionals</span>
+              <h5 class="card-title">Crash Courses in Robotics & IoT</h5>
+              <p class="card-text text-secondary">Courses for trainee professionals: intensive hands-on training in robotics and IoT. Ideal for upskilling and career advancement.</p>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between">
+              <span class="fw-semibold">6 months</span>
+              <a href="crash-courses-in-robotics-and-iot.html" class="link-primary">Know more →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section id="curriculum" class="section bg-light">
+    <div class="container">
+      <h2 class="fw-bold mb-4 text-center">Sample Curriculum</h2>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="p-4 bg-white border rounded-2xl shadow-soft h-100">
+            <h6 class="fw-bold">Module 1: Foundations</h6>
+            <ul class="text-secondary small mb-0 list-check">
+              <li>Safety & lab orientation</li>
+              <li>Electricity basics & breadboards</li>
+              <li>Microcontrollers 101</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="p-4 bg-white border rounded-2xl shadow-soft h-100">
+            <h6 class="fw-bold">Module 2: Build & Code</h6>
+            <ul class="text-secondary small mb-0 list-check">
+              <li>Sensors & actuators</li>
+              <li>Line follower robot</li>
+              <li>Wireless control (Bluetooth/Wi‑Fi)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="p-4 bg-white border rounded-2xl shadow-soft h-100">
+            <h6 class="fw-bold">Module 3: Showcase</h6>
+            <ul class="text-secondary small mb-0 list-check">
+              <li>Document & present projects</li>
+              <li>Team challenge</li>
+              <li>Certification & feedback</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-3">Parents & Students Love It</h2>
+          <p class="text-secondary">We focus on curiosity, creativity, and confidence through making.</p>
+          <div class="d-flex gap-3 align-items-center mt-3">
+            <div class="icon-circle">⭐</div>
+            <div>
+              <div class="fw-bold">4.9/5 Average Rating</div>
+              <div class="small text-secondary">from workshops & camps</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <p class="mb-1">“My child now explains sensors at dinner!”</p>
+                <div class="small text-secondary">— Parent of Grade 6 student</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <p class="mb-1">“Best part was building a line follower bot.”</p>
+                <div class="small text-secondary">— Grade 8 student</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <p class="mb-1">“Structured, safe, and super engaging.”</p>
+                <div class="small text-secondary">— School coordinator</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 border rounded-2xl shadow-soft h-100">
+                <p class="mb-1">“Loved the certificates & demo day!”</p>
+                <div class="small text-secondary">— Parent of Grade 4 student</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section bg-light">
+    <div class="container">
+      <h2 class="fw-bold mb-4 text-center">Gallery</h2>
+      <div class="row g-4 gallery justify-content-center">
+        <!-- Images -->
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage1.png" alt="Gallery 1">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage2.png" alt="Gallery 2">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage3.png" alt="Gallery 3">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage4.png" alt="Gallery 4">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage5.png" alt="Gallery 5">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage6.png" alt="Gallery 6">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/inage7.png" alt="Gallery 7">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/RoboKids-Explorer.png" alt="RoboKids Explorer">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/IoT-Innovators.png" alt="IoT Innovators">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/RoboMaster.png" alt="RoboMaster">
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <img class="card-img-top rounded-2xl" src="assets/img/Crash-Courses-in-Robotics-and-IoT.png" alt="Crash Courses in Robotics and IoT">
+          </div>
+        </div>
+        <!-- Videos -->
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <video class="card-img-top rounded-2xl" controls poster="assets/img/inage1.png" style="object-fit:cover;max-height:220px;width:100%;">
+              <source src="assets/img/sample1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div class="card border-0 shadow-soft h-100 gallery-card">
+            <video class="card-img-top rounded-2xl" controls poster="assets/img/inage2.png" style="object-fit:cover;max-height:220px;width:100%;">
+              <source src="assets/img/sample2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Plans -->
+  <section id="enroll" class="section">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5">Plans</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 border rounded-2xl shadow-soft h-100">
+            <h5 class="fw-bold">Starter</h5>
+            <div class="mb-2">
+              <div class="fw-bold">Registration Fee (Year): <span class="text-primary">₹1000</span></div>
+              <div class="fw-bold">Monthly Subscription: <span class="text-primary">₹600</span></div>
+            </div>
+            <ul class="list-check text-secondary small mt-3">
+              <li>Weekly 1 session</li>
+              <li>Junior track</li>
+              <li>Certificate</li>
+            </ul>
+            <a href="#contact" class="btn btn-brand text-white w-100 mt-3">Choose</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded-2xl shadow-soft h-100">
+            <!-- <div class="mb-1"><span class="badge badge-soft">Popular</span></div> -->
+            <h5 class="fw-bold">Growth</h5>
+            <div class="mb-2">
+              <div class="fw-bold">Registration Fee (Year): <span class="text-primary">₹2000</span></div>
+              <div class="fw-bold">Monthly Subscription: <span class="text-primary">₹700</span></div>
+            </div>
+            <ul class="list-check text-secondary small mt-3">
+              <li>Weekly 2 sessions</li>
+              <li>Middle/Senior tracks</li>
+              <li>Competition prep</li>
+            </ul>
+            <a href="#contact" class="btn btn-brand text-white w-100 mt-3">Choose</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded-2xl shadow-soft h-100">
+            <h5 class="fw-bold">School Collaboration Program</h5>
+            <div class="display-6 fw-bold">Custom</div>
+            <ul class="list-check text-secondary small mt-3">
+              <li>On‑campus lab setup</li>
+              <li>Teacher training</li>
+              <li>Annual plan & events</li>
+            </ul>
+            <a href="#contact" class="btn btn-brand text-white w-100 mt-3">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section bg-light">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-2">Get in Touch</h2>
+          <p class="text-secondary">Ask about schedules, fees, or custom school programs.</p>
+          <div class="p-4 bg-white border rounded-2xl shadow-soft">
+            <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll contact you soon.');">
+              <div class="row g-3">
+                <div class="col-md-6"><label class="form-label">Name</label><input required class="form-control" type="text" placeholder="Parent / Student name"></div>
+                <div class="col-md-6"><label class="form-label">Phone</label><input required class="form-control" type="tel" placeholder="WhatsApp / Mobile"></div>
+                <div class="col-12"><label class="form-label">Email</label><input class="form-control" type="email" placeholder="Optional"></div>
+                <div class="col-12"><label class="form-label">Message</label><textarea required class="form-control" rows="4" placeholder="Tell us the grade, course interest, city..."></textarea></div>
+                <div class="col-12"><button class="btn btn-brand text-white">Send Inquiry</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 bg-white border rounded-2xl shadow-soft h-100">
+            <h6 class="fw-bold">Visit Us</h6>
+            <p class="mb-1">Good Cause Solution, Midnapore</p>
+            <p class="text-secondary small">Open: Mon–Sat, 10:00–18:00</p>
+            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
+              <iframe src="https://www.google.com/maps?q=Midnapore&output=embed" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 border-top bg-white">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3">
+  <div class="small">© <span id="year"></span> Good Cause Solution • All rights reserved</div>
+      <div class="d-flex gap-3 small"><a href="#" class="link-secondary text-decoration-none">Privacy</a><a href="#" class="link-secondary text-decoration-none">Terms</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
